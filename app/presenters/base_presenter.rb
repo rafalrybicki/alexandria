@@ -18,6 +18,7 @@ class BasePresenter
   #     end
   #   end
   # end
+  include Rails.application.routes.url_helpers
 
 
   # Define a class level instance variable
