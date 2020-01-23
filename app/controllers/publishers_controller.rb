@@ -1,4 +1,6 @@
 class PublishersController < ApplicationController
+  include PgSearch
+  multisearchable against: [:name]
 
   def index
     publishers = orchestrate_query(Publisher.all)
