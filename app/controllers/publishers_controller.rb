@@ -2,6 +2,9 @@ class PublishersController < ApplicationController
   include PgSearch
   multisearchable against: [:name]
 
+  before_action :authenticate_user, only: [:create, :update, :destroy]
+  before_action :authorize_actions
+
   def index
     publishers = orchestrate_query(Publisher.all)
     render serialize(publishers)
