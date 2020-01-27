@@ -20,6 +20,9 @@ require 'carrierwave/orm/activerecord'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+env_variables = File.join('config', 'env.rb')
+load(env_variables) if File.exists?(env_variables)
+
 module Alexandria
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
